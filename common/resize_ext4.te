@@ -1,0 +1,44 @@
+# Policy for resize_ext4 service
+type resize_ext4, domain;
+type resize_ext4_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(resize_ext4)
+
+# For a handful of probing tools, we choose an even more restrictive
+# domain when working with untrusted block devices
+domain_trans(resize_ext4, resize2fs_exec, resize2fs);
+
+# permissive resize_ext4;
+# Inherit and use pty created by android_fork_execvp_ext().
+allow resize_ext4 devpts:chr_file { open read write ioctl getattr };
+
+allow resize_ext4 kmsg_device:chr_file { open write };
+
+allow resize_ext4 block_device:dir search;
+allow resize_ext4 userdata_block_device:blk_file rw_file_perms;
+
+# Run resize2fs.
+allow resize_ext4 resize2fs_exec:file rx_file_perms;
+
+###
+### neverallow rules
+###
+
+# resize_ext4 should never be run on these block devices
+neverallow resize_ext4 {
+  boot_block_device
+  frp_block_device
+  metadata_block_device
+  recovery_block_device
+  root_block_device
+  swap_block_device
+  system_block_device
+  vold_device
+}:blk_file no_rw_file_perms;
+
+# Only allow entry from init or vold via resize_ext4 binaries
+neverallow { domain -init -vold } resize_ext4:process transition;
+neverallow domain resize_ext4:process dyntransition;
+neverallow resize_ext4 { file_type fs_type -resize_ext4_exec }:file entrypoint;
+

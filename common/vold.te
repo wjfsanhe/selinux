@@ -5,3 +5,8 @@ allow vold { fscklogs cache_file }:file create_file_perms;
 allow vold { proc_sysrq proc_dirty_ratio }:file rw_file_perms;
 wakelock_use(vold)
 allow vold swap_block_device:blk_file r_file_perms;
+
+domain_trans(vold, resize_ext4_exec, resize_ext4);
+domain_trans(vold, resize2fs_exec, resize2fs);
+allow vold resize_ext4_exec:file rx_file_perms;
+allow vold resize2fs_exec:file rx_file_perms;

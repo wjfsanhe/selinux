@@ -1,0 +1,9 @@
+# Policy for resize2fs service
+type resize2fs, domain;
+type resize2fs_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(resize2fs)
+
+# permissive resize2fs;
+
