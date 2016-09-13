@@ -198,3 +198,11 @@ type dynamic_nv_data_file, file_type, data_file_type;
 type wififtmd_socket, file_type;
 
 type persist_alarm_file, file_type;
+#Define the sysfs files for motor by zhoumingliang
+type sysfs_motortest, sysfs_type, fs_type;
+
+#Define the sysfs files for sn3731 by zjl
+type sysfs_ledtest, sysfs_type, fs_type;
+
+#Define the sysfs files for gestures by zjl
+type sysfs_gesttest, sysfs_type, fs_type;

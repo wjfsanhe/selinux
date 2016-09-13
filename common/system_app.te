@@ -192,3 +192,11 @@ unix_socket_connect(system_app, ims, ims)
 
 # access to qseeproxy domain
 allow system_app qseeproxy:unix_dgram_socket sendto;
+#motor
+allow system_app sysfs_motortest:file rw_file_perms;
+
+#led-sn3731
+allow system_app sysfs_ledtest:file rw_file_perms;
+
+#gestures
+allow system_app sysfs_gesttest:file rw_file_perms;

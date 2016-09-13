@@ -285,7 +285,34 @@
 /sys/devices/soc0/.*                                                u:object_r:sysfs_socinfo:s0
 /sys/devices/soc/soc:hbtp/secure_touch                              u:object_r:hbtp_kernel_sysfs:s0
 /sys/devices/soc/soc:hbtp/secure_touch_enable                       u:object_r:hbtp_kernel_sysfs:s0
+
 /sys/devices/soc/soc:hbtp/secure_touch_userspace                    u:object_r:hbtp_kernel_sysfs:s0
+
+/sys/class/timed_output/vibrator/enable         u:object_r:sysfs_motortest:s0
+/sys/class/timed_output/vibrator:1/enable         u:object_r:sysfs_motortest:s0
+/sys/class/timed_output/vibrator:2/enable         u:object_r:sysfs_motortest:s0
+/sys/class/timed_output/vibrator:3/enable         u:object_r:sysfs_motortest:s0
+/sys/devices/virtual/timed_output/vibrator/enable 		 	 u:object_r:sysfs_motortest:s0
+/sys/devices/virtual/timed_output/vibrator:1/enable 		 u:object_r:sysfs_motortest:s0
+/sys/devices/virtual/timed_output/vibrator:2/enable 		 u:object_r:sysfs_motortest:s0
+/sys/devices/virtual/timed_output/vibrator:3/enable 		 u:object_r:sysfs_motortest:s0
+
+
+####zjl add with led-sn3731#########
+/sys/bus/i2c/devices/12-0074/leds/led-string/led_data										u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0074/leds/led-string/led_data		u:object_r:sysfs_ledtest:s0
+/sys/bus/i2c/devices/12-0074/leds/led-string/breath_on										u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0074/leds/led-string/breath_on		u:object_r:sysfs_ledtest:s0
+/sys/bus/i2c/devices/12-0074/leds/led-string/breath_off										u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0074/leds/led-string/breath_off		u:object_r:sysfs_ledtest:s0
+/sys/bus/i2c/devices/12-0074/leds/led-string/pattern_breath										u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0074/leds/led-string/pattern_breath		u:object_r:sysfs_ledtest:s0
+/sys/bus/i2c/devices/12-0074/leds/led-string/pattern_breath_off										u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0074/leds/led-string/pattern_breath_off		u:object_r:sysfs_ledtest:s0
+
+####zjl add with gestures#########
+/sys/bus/i2c/devices/12-0038/gestures										u:object_r:sysfs_gesttest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0038/gestures		u:object_r:sysfs_gesttest:s0
 
 ###################################
 # data files
