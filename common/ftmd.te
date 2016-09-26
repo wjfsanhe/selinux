@@ -1,0 +1,23 @@
+# Policy for ftmdaemon service
+type ftmdaemon, domain;
+type ftmdaemon_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(ftmdaemon)
+
+allow ftmdaemon smd_device:chr_file { read write open ioctl };
+allow ftmdaemon shell_exec:file { execute read open execute_no_trans };
+allow ftmdaemon system_file:file { execute_no_trans };
+allow ftmdaemon qmuxd_socket:dir { write add_name search };
+allow ftmdaemon qmuxd_socket:sock_file { create setattr write };
+allow ftmdaemon qmuxd:unix_stream_socket { connectto };
+allow ftmdaemon persist_file:dir { search };
+allow ftmdaemon sysfs:file { create open write read };
+allow ftmdaemon property_socket:sock_file { create  setattr write };
+allow ftmdaemon init:unix_stream_socket { connectto };
+allow ftmdaemon serial_device:chr_file { create open read write ioctl };
+allow ftmdaemon ftmdaemon:capability { net_admin dac_override };
+#allow ftmdaemon persist_file:file { create open read write ioctl };
+allow ftmdaemon bluetooth_data_file:file { create open getattr setattr read write ioctl append };
+#allow ftmdaemon bt_firmware_file:file { create open getattr setattr read write ioctl  };
+
