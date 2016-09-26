@@ -184,3 +184,21 @@ allow qti_init_shell persist_alarm_file:file r_file_perms;
 #Allow /sys access to write zram disksize
 allow qti_init_shell sysfs_zram:dir r_dir_perms;
 allow qti_init_shell sysfs_zram:file w_file_perms;
+
+# xuke @ 20150630	For ptt_socket_app WiFi test.
+allow qti_init_shell self:tcp_socket { create setopt bind name_bind node_bind getattr listen };
+allow qti_init_shell wcnss_service_exec:file { execute_no_trans };
+allow qti_init_shell port:tcp_socket name_bind;
+allow qti_init_shell node:tcp_socket node_bind;
+
+# xuke @ 20150717	For #*2008# WiFi test.
+allow qti_init_shell self:udp_socket { create ioctl };
+allow qti_init_shell self:appletalk_socket { create };
+
+# wangfajie @ 20160101 For #*2008# RF WiFi test for andriod_M
+allow qti_init_shell storage_file:dir { search read };
+allow qti_init_shell storage_file:lnk_file { read }; 
+allow qti_init_shell wcnss_service_exec:file { getattr execute read open };
+allow qti_init_shell self:capability { net_raw };
+allow qti_init_shell mnt_user_file:dir { search };
+allow qti_init_shell mnt_user_file:lnk_file { read };
