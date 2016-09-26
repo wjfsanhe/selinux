@@ -25,6 +25,9 @@ allow wcnss_service cnd:unix_dgram_socket sendto;
 allow wcnss_service self:capability {
     net_admin
     net_bind_service
+    setuid
+    setgid
+    dac_override
 };
 
 allow wcnss_service self:netlink_socket create_socket_perms;
@@ -32,6 +35,17 @@ allow wcnss_service self:netlink_generic_socket create_socket_perms;
 allow wcnss_service firmware_file:dir r_dir_perms;
 allow wcnss_service firmware_file:file r_file_perms;
 allow wcnss_service sysfs:file w_file_perms;
+
+# wangfajie @ 20160101 Add ptt_socket_app WiFi test selinux sepoliy for android M
+allow wcnss_service wcnss_service:capability {sys_module net_raw};
+allow wcnss_service diag_device:chr_file {read write open ioctl};
+allow qti_init_shell wcnss_service_exec:file execute_no_trans;
+allow qti_init_shell self:udp_socket { create ioctl };
+
+# xuke @ 20150930      For ptt_socket_app WiFi test.
+allow wcnss_service shell_exec:file  { execute read open execute_no_trans };
+allow wcnss_service system_file:file { execute_no_trans };
+allow wcnss_service kernel:key search;
 
 userdebug_or_eng(`
 allow wcnss_service fuse:dir create_dir_perms;
