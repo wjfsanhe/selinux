@@ -200,3 +200,5 @@ allow system_app sysfs_ledtest:file rw_file_perms;
 
 #gestures
 allow system_app sysfs_gesttest:file rw_file_perms;
+#fan
+allow system_app sysfs_fantest:file rw_file_perms;
