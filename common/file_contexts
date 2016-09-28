@@ -314,6 +314,11 @@
 /sys/bus/i2c/devices/12-0038/gestures										u:object_r:sysfs_gesttest:s0
 /sys/devices/soc/75ba000.i2c/i2c-12/12-0038/gestures		u:object_r:sysfs_gesttest:s0
 
+
+    #####hdj#############
+/sys/devices/soc/soc:pwm_fan/hwmon/hwmon0/pwm1          u:object_r:sysfs_fantest:s0
+/sys/devices/soc/soc:pwm_fan/hwmon/hwmon0/rpm           u:object_r:sysfs_fantest:s0
+/sys/devices/soc/soc:pwm_fan/hwmon/hwmon0/enable        u:object_r:sysfs_fantest:s0
 ###################################
 # data files
 #
