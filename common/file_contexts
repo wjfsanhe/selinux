@@ -328,11 +328,11 @@
 
 #####zml#########
 /sys/class/leds/red/brightness		u:object_r:sysfs_ledtest:s0
-/sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/red/multi_function		u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/red/brightness		u:object_r:sysfs_ledtest:s0
 /sys/class/leds/green/brightness		u:object_r:sysfs_ledtest:s0
-/sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/green/multi_function		u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/green/brightness		u:object_r:sysfs_ledtest:s0
 /sys/class/leds/blue/brightness		u:object_r:sysfs_ledtest:s0
-/sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/blue/multi_function		u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/blue/brightness		u:object_r:sysfs_ledtest:s0
 ###################################
 # data files
 #
