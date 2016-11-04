@@ -208,3 +208,7 @@ type sysfs_ledtest, sysfs_type, fs_type;
 type sysfs_gesttest, sysfs_type, fs_type;
 #Define the sysfs files for fan by hdj
 type sysfs_fantest, sysfs_type, fs_type;
+
+#Define the bt hidraw files for daydream joystick@iqiyi by lct.mshuai @20161101
+type bt_hid_dev_file, sysfs_type, fs_type;
+allow bt_hid_dev_file tmpfs:filesystem associate;

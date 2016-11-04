@@ -202,3 +202,6 @@ allow system_app sysfs_ledtest:file rw_file_perms;
 allow system_app sysfs_gesttest:file rw_file_perms;
 #fan
 allow system_app sysfs_fantest:file rw_file_perms;
+
+#hidraw* add by lct.mshuai@20161031
+allow system_app bt_hid_dev_file:{chr_file dir} rw_file_perms;

@@ -412,3 +412,10 @@
 # cache files
 #
 /cache/FTM_AP(/.*)?                                                  u:object_r:mmi_data_file:s0
+
+###################################
+# dev/hidraw*  add by lct.mshuai @20161101
+#
+/dev/hidraw.*                                                         u:object_r:bt_hid_dev_file:s0
+/sys/devices/virtual/misc/uhid/0.*/hidraw/hidraw.*		     u:object_r:bt_hid_dev_file:s0
+/sys/class/hidraw/hidraw.*                                            u:object_r:bt_hid_dev_file:s0
