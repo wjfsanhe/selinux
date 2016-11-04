@@ -30,6 +30,7 @@ allow qti_init_shell vm_bms_device:chr_file getattr;
 
 # create/open, read/write permission for fm calibration file.
 allow qti_init_shell fm_data_file: file create_file_perms;
+allow qti_init_shell system_file:system module_load;
 
 # for insmod of iris ko, this is needed.
 # dac_read/override is needed for scripts to do chown/mkdir which is
@@ -202,3 +203,5 @@ allow qti_init_shell wcnss_service_exec:file { getattr execute read open };
 allow qti_init_shell self:capability { net_raw };
 allow qti_init_shell mnt_user_file:dir { search };
 allow qti_init_shell mnt_user_file:lnk_file { read };
+# zhoumingliang add for myftm wifitest
+allow qti_init_shell self:netlink_socket {create read write setopt bind getattr};

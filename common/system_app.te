@@ -205,3 +205,6 @@ allow system_app sysfs_fantest:file rw_file_perms;
 
 #hidraw* add by lct.mshuai@20161031
 allow system_app bt_hid_dev_file:{chr_file dir} rw_file_perms;
+
+#for wifi myftm test
+allow system_app self:netlink_socket {create read write setopt bind getattr};
