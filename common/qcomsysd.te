@@ -21,3 +21,4 @@ allow qcomsysd sysfs_socinfo:file w_file_perms;
 
 allow qcomsysd self:capability { dac_override sys_boot };
 use_per_mgr(qcomsysd);
+allow qcomsysd misc_block_device:blk_file{read write open};
