@@ -1,0 +1,2 @@
+#allow qcomsysd access misc partition for factory tools
+allow qcomsysd misc_block_device:blk_file{read write open};

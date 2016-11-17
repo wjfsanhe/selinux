@@ -8,4 +8,8 @@ BOARD_SEPOLICY_DIRS := \
        $(LOCAL_PATH)/test \
        $(LOCAL_PATH)/$(TARGET_BOARD_PLATFORM)
 
+ifeq ($(user_variant),userdebug)
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/userdebug_factory
+endif
+
 endif
