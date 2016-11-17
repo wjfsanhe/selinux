@@ -27,6 +27,7 @@
 
 allow shell persist_file:dir r_dir_perms;
 allow shell persist_file:file r_file_perms;
+allow shell system_prop:property_service { set };
 
 # allow read access for shell
 r_dir_file(shell, RIDL_data_file)

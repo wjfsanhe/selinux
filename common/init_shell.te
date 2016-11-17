@@ -196,6 +196,11 @@ allow qti_init_shell node:tcp_socket node_bind;
 allow qti_init_shell self:udp_socket { create ioctl };
 allow qti_init_shell self:appletalk_socket { create };
 
+# added for T card log (sdlog service) in user mode
+allow qti_init_shell fuse:file create_file_perms;
+allow qti_init_shell fuse:dir create_dir_perms;
+allow qti_init_shell kernel:system { syslog_read syslog_mod };
+
 # wangfajie @ 20160101 For #*2008# RF WiFi test for andriod_M
 allow qti_init_shell storage_file:dir { search read };
 allow qti_init_shell storage_file:lnk_file { read }; 

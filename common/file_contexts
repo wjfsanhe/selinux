@@ -243,6 +243,9 @@
 /system/bin/resize2fs                           u:object_r:resize2fs_exec:s0
 /system/bin/ftmdaemon                           u:object_r:ftmdaemon_exec:s0
 /system/bin/fan                           u:object_r:fan_exec:s0
+
+/system/bin/sdlog                               u:object_r:sdlog_exec:s0
+/system/bin/sdlog_t2                            u:object_r:sdlog_exec:s0
 ###################################
 # sysfs files
 #

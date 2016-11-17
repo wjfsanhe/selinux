@@ -161,6 +161,10 @@ r_dir_file(system_app, audio_pp_data_file);
 allow system_app radio_data_file:dir rw_dir_perms;
 allow system_app radio_data_file:file create_file_perms;
 
+#added for T card log (sdlog service) in user mode
+allow system_app diag_device:chr_file { read write open ioctl};
+
+
 # DOLBY_START
 set_prop(system_app, dolby_prop)
 # DOLBY_END

@@ -1,0 +1,91 @@
+# android user-space log manager
+type sdlog, domain;
+type sdlog_exec, exec_type, file_type;
+
+# make transition from init to its domain
+init_daemon_domain(sdlog)
+
+# permissive sdlog;
+
+type sdlog_debug,file_type;
+
+allow sdlog self:capability { 
+	setuid
+	setgid
+	sys_nice
+	audit_control
+	dac_override
+	dac_read_search
+    	sys_module
+    	net_raw
+    	net_admin
+};
+
+allow shell system_prop:property_service { set };
+allow sdlog self:capability2 syslog;
+allow sdlog self:netlink_audit_socket { create_socket_perms nlmsg_write };
+
+allow sdlog property_socket:sock_file {write};
+allow sdlog init:unix_stream_socket {connectto};
+
+# need to capture kmsg
+allow sdlog kernel:system { syslog_read syslog_mod };
+
+allow sdlog kmsg_device:chr_file w_file_perms;
+allow sdlog system_file:file  { execute_no_trans };
+allow sdlog block_device:dir  { search };
+
+# need to create and write files in fuse partition
+allow sdlog fuse:dir  { search write add_name create remove_name read open};
+allow sdlog fuse:file create_file_perms;
+
+# need to start shell execute files
+allow sdlog shell_exec:file  { getattr execute read open execute_no_trans };
+allow sdlog logcat_exec:file  { getattr execute read open execute_no_trans};
+
+allow sdlog { qdss_device }:file read;
+allow sdlog logdr_socket:sock_file  { write };
+allow sdlog logd:unix_stream_socket  { connectto };
+allow sdlog system_prop:property_service {set};
+
+allow sdlog storage_file:dir { search write add_name create};
+allow sdlog storage_file:lnk_file {read};
+allow sdlog tmpfs:dir {search};
+
+allow sdlog toolbox_exec:file {getattr execute read open execute_no_trans};
+allow sdlog qlogd_exec:file {getattr execute read open execute_no_trans};
+allow sdlog mnt_user_file:dir {search};
+allow sdlog mnt_user_file:lnk_file {read};
+
+allow sdlog logcat_exec:file {open getattr execute read execute_no_trans};
+
+allow sdlog sysfs:file  {write};
+allow sdlog init:file  { read };
+
+allow sdlog self:packet_socket  {create ioctl  bind getopt setopt read write};
+allow sdlog self:udp_socket  {create ioctl  bind getopt setopt read write};
+allow sdlog wcnss_service_exec:file  {getattr execute read open execute_no_trans};
+allow sdlog wifi_data_file:dir  {search};
+allow sdlog wpa_socket:dir  {search write add_name remove_name};
+allow sdlog wpa_socket:sock_file  create_file_perms;
+allow sdlog wpa:unix_dgram_socket  {sendto};
+allow wpa sdlog:unix_dgram_socket  {sendto};
+
+
+###
+### Neverallow rules
+###
+### sdlog should NEVER do any of this
+
+# Block device access.
+neverallow sdlog dev_type:blk_file { read write };
+
+# ptrace any other app
+neverallow sdlog domain:process ptrace;
+
+# Write to /system.
+neverallow sdlog system_file:dir_file_class_set write;
+
+# Write to files in /data/data or system files on /data
+neverallow sdlog { app_data_file system_data_file }:dir_file_class_set write;
+
