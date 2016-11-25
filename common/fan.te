@@ -5,3 +5,6 @@ type fan_exec, exec_type, file_type;
 init_daemon_domain(fan)
 
 allow fan self:capability {dac_override};
+
+allow fan sysfs_fantest:file {open read write};
+allow shell fan_exec:file {getattr execute open read};
