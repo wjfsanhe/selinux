@@ -20,4 +20,6 @@ allow ftmdaemon ftmdaemon:capability { net_admin dac_override };
 #allow ftmdaemon persist_file:file { create open read write ioctl };
 allow ftmdaemon bluetooth_data_file:file { create open getattr setattr read write ioctl append };
 #allow ftmdaemon bt_firmware_file:file { create open getattr setattr read write ioctl  };
-
+allow ftmdaemon self:netlink_socket { read setopt bind getattr write create};
+allow ftmdaemon self:udp_socket { create ioctl };
+allow ftmdaemon self:capability { net_raw };
