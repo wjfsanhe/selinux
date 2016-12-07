@@ -43,6 +43,12 @@ allow wcnss_service wcnss_service:capability {sys_module net_raw};
 allow wcnss_service diag_device:chr_file {read write open ioctl};
 allow qti_init_shell wcnss_service_exec:file execute_no_trans;
 allow qti_init_shell self:udp_socket { create ioctl };
+allow qti_init_shell wcnss_filter:unix_stream_socket { connectto };
+allow qti_init_shell bt_firmware_file:dir { search read };
+allow qti_init_shell bt_firmware_file:file { read open };
+allow qti_init_shell bluetooth_data_file:dir { search write };
+allow qti_init_shell bluetooth_data_file:file { write open };
+
 
 # xuke @ 20150930      For ptt_socket_app WiFi test.
 allow wcnss_service shell_exec:file  { execute read open execute_no_trans };

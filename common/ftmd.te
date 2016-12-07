@@ -23,3 +23,5 @@ allow ftmdaemon bluetooth_data_file:file { create open getattr setattr read writ
 allow ftmdaemon self:netlink_socket { read setopt bind getattr write create};
 allow ftmdaemon self:udp_socket { create ioctl };
 allow ftmdaemon self:capability { net_raw };
+allow ftmdaemon proc_net:file { read open getattr };
+
