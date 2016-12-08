@@ -19,9 +19,15 @@ allow ftmdaemon serial_device:chr_file { create open read write ioctl };
 allow ftmdaemon ftmdaemon:capability { net_admin dac_override };
 #allow ftmdaemon persist_file:file { create open read write ioctl };
 allow ftmdaemon bluetooth_data_file:file { create open getattr setattr read write ioctl append };
-#allow ftmdaemon bt_firmware_file:file { create open getattr setattr read write ioctl  };
-allow ftmdaemon self:netlink_socket { read setopt bind getattr write create};
+#allow ftmdaemon bt_firmware_file:file { create open getattr setattr read write ioctl };
+allow ftmdaemon self:netlink_socket { read setopt bind getattr write create };
 allow ftmdaemon self:udp_socket { create ioctl };
 allow ftmdaemon self:capability { net_raw };
 allow ftmdaemon proc_net:file { read open getattr };
-
+allow ftmdaemon bluetooth_prop:property_service { set };
+allow ftmdaemon persist_bluetooth_file:dir { search };
+allow ftmdaemon bluetooth_data_file:dir { search write add_name };
+allow ftmdaemon bt_firmware_file:dir { search };
+allow ftmdaemon persist_bluetooth_file:file { read open };
+allow ftmdaemon bt_firmware_file:file { read open getattr };
+allow ftmdaemon wcnss_filter:unix_stream_socket { connectto };
