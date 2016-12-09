@@ -212,3 +212,11 @@ allow system_app bt_hid_dev_file:{chr_file dir} rw_file_perms;
 
 #for wifi myftm test
 allow system_app self:netlink_socket {create read write setopt bind getattr};
+
+#add by wuyongsheng for Bluetoothbackup
+allow system_app persist_drm_file:dir {search};
+allow system_app persist_drm_file:dir {write};
+allow system_app persist_drm_file:dir {add_name};
+allow system_app persist_drm_file:file {create};
+allow system_app persist_drm_file:file {read write open};
+allow system_app persist_drm_file:file {getattr};

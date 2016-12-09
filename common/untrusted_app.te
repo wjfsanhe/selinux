@@ -22,3 +22,6 @@ userdebug_or_eng(`
 
 # for finding gba_auth_service
 allow untrusted_app gba_auth_service:service_manager find;
+
+#add by wuyongsheng for bluetoothbackup
+allow untrusted_app persist_file:dir search;
