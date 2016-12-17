@@ -257,6 +257,7 @@
 
 /system/bin/sdlog                               u:object_r:sdlog_exec:s0
 /system/bin/sdlog_t2                            u:object_r:sdlog_exec:s0
+
 ###################################
 # sysfs files
 #
@@ -326,6 +327,10 @@
 /sys/bus/i2c/devices/12-0074/leds/led-string/pattern_breath_off										u:object_r:sysfs_ledtest:s0
 /sys/devices/soc/75ba000.i2c/i2c-12/12-0074/leds/led-string/pattern_breath_off		u:object_r:sysfs_ledtest:s0
 
+##### add by yangguannan 2016 1216
+/sys/class/leds/lcd-backlight/brightness		u:object_r:sysfs_ledtest:s0
+/sys/devices/soc/900000.qcom,mdss_mdp/900000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight/brightness		u:object_r:sysfs_ledtest:s0
+#####
 ####zjl add with aw2015#########
 /sys/class/leds/red/multi_function		u:object_r:sysfs_ledtest:s0
 /sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/red/multi_function		u:object_r:sysfs_ledtest:s0
