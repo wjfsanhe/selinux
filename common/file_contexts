@@ -330,7 +330,7 @@
 
 ##### add by yangguannan 2016 1216
 /sys/class/leds/lcd-backlight/brightness		u:object_r:sysfs_ledtest:s0
-/sys/devices/soc/900000.qcom,mdss_mdp/900000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight/brightness
+/sys/devices/soc/900000.qcom,mdss_mdp/900000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight/brightness		u:object_r:sysfs_ledtest:s0
 #####
 ####zjl add with aw2015#########
 /sys/class/leds/red/multi_function		u:object_r:sysfs_ledtest:s0
