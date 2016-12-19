@@ -1,0 +1,17 @@
+type btwrite, domain;
+type btwrite_exec, exec_type, file_type;
+
+# Started by init  
+init_daemon_domain(btwrite)
+allow btwrite persist_drm_file:dir {search};
+allow btwrite bluetooth_data_file:dir {search};
+allow btwrite persist_file:dir {search};
+allow btwrite self:capability {dac_override};
+allow btwrite self:capability {dac_read_search};
+allow btwrite bluetooth_data_file:file {read write};
+allow btwrite persist_drm_file:file {read write};
+allow btwrite bluetooth_data_file:file {open};
+allow btwrite bluetooth_data_file:file {getattr};
+allow btwrite persist_drm_file:file {open};
+
+

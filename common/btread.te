@@ -1,0 +1,26 @@
+type btread, domain;
+type btread_exec, exec_type, file_type;
+
+# Started by init  
+init_daemon_domain(btread)
+allow btread self:capability {dac_read_search};
+allow btread self:capability {dac_override};
+allow btread bluetooth_data_file:dir {search};
+allow btread persist_drm_file:dir {search};
+allow btread shell_exec:file {execute};
+allow btread shell_exec:file {read open};
+allow btread persist_file:dir {search};
+allow btread bluetooth_data_file:file {read write};
+allow btread persist_drm_file:file {read write};
+allow btread shell_exec:file {execute_no_trans};
+allow system_app btread_exec:file {execute};
+allow btread shell_exec:file {getattr};
+allow btread bluetooth_data_file:file {open};
+allow btread persist_drm_file:file {open};
+allow btread bluetooth_data_file:file {getattr};
+allow system_app btread_exec:file {read open};
+allow btread persist_drm_file:file {open};
+allow btread persist_drm_file:file {getattr};
+allow btread toolbox_exec:file {getattr};
+allow btread toolbox_exec:file {execute};
+
