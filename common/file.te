@@ -89,6 +89,9 @@ type gamed_socket, file_type;
 type iop_socket, file_type;
 type iop_data_file, file_type, data_file_type;
 
+# SPSS Apps images location
+type spss_data_file, file_type, data_file_type;
+
 #mm-qcamera-daemon socket
 type camera_socket, file_type;
 
@@ -198,6 +201,7 @@ type dynamic_nv_data_file, file_type, data_file_type;
 type wififtmd_socket, file_type;
 
 type persist_alarm_file, file_type;
+
 #Define the sysfs files for motor by zhoumingliang
 type sysfs_motortest, sysfs_type, fs_type;
 
@@ -212,3 +216,8 @@ type sysfs_fantest, sysfs_type, fs_type;
 #Define the bt hidraw files for daydream joystick@iqiyi by lct.mshuai @20161101
 type bt_hid_dev_file, sysfs_type, fs_type;
 allow bt_hid_dev_file tmpfs:filesystem associate;
+
+type persist_time_file, file_type;
+
+# kgsl file type for sysfs access
+type sysfs_kgsl, sysfs_type, fs_type;
