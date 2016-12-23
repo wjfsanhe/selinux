@@ -198,6 +198,13 @@ unix_socket_connect(system_app, ims, ims)
 
 # access to qseeproxy domain
 allow system_app qseeproxy:unix_dgram_socket sendto;
+
+#WAPI
+allow system_app media_rw_data_file:dir search;
+allow system_app media_rw_data_file:file open;
+allow system_app wapi_data_file:dir create_dir_perms;
+allow system_app wapi_data_file:file create_file_perms;
+
 #motor
 allow system_app sysfs_motortest:file rw_file_perms;
 

@@ -12,3 +12,7 @@ allow wpa { cnd ims }:unix_dgram_socket sendto;
 allow wpa fstman:unix_dgram_socket sendto;
 
 type_transition wpa wifi_data_file:dir wpa_socket "wigig_sockets";
+
+#WAPI
+allow wpa system_data_file:file open;
+r_dir_file(wpa, wapi_data_file)
