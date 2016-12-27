@@ -217,3 +217,11 @@ allow qti_init_shell mnt_user_file:lnk_file { read };
 allow qti_init_shell self:netlink_socket {create read write setopt bind getattr};
 # To get GPU frequencies
 allow qti_init_shell sysfs_kgsl:file r_file_perms;
+
+# zhuxiaomin @ 20161227 for wifi throughput test
+allow qti_init_shell sysfs:dir { write };
+allow qti_init_shell sysfs_thermal:dir { write };
+allow qti_init_shell ctl_default_prop:property_service { set };
+allow qti_init_shell sysfs_devices_system_cpu:dir { write };
+allow qti_init_shell qti_init_shell:rawip_socket { create };
+allow qti_init_shell qti_init_shell:rawip_socket { getopt };
