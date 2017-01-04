@@ -31,3 +31,4 @@ allow ftmdaemon bt_firmware_file:dir { search };
 allow ftmdaemon persist_bluetooth_file:file { read open };
 allow ftmdaemon bt_firmware_file:file { read open getattr };
 allow ftmdaemon wcnss_filter:unix_stream_socket { connectto };
+allow ftmdaemon diag_device:chr_file { read write open ioctl };
