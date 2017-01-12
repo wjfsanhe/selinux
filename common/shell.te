@@ -33,7 +33,8 @@ allow qti_init_shell logcat_exec:file { getattr };
 allow qti_init_shell logcat_exec:file { execute };
 allow qti_init_shell logcat_exec:file { execute_no_trans };
 allow qti_init_shell logcat_exec:file { read open  };
-
+allow qti_init_shell logdr_socket:sock_file { write };
+allow qti_init_shell logd:unix_stream_socket { connectto };
 # allow read access for shell
 r_dir_file(shell, RIDL_data_file)
 
