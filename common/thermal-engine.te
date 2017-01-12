@@ -18,6 +18,9 @@ allow thermal-engine self:capability {
     sys_boot
 };
 
+allow thermal-engine sysfs_kgsl:file { read };
+
+
 allow thermal-engine self:socket create_socket_perms;
 
 # This is required to access thermal sockets

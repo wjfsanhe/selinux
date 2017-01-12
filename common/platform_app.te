@@ -6,6 +6,9 @@ binder_call(platform_app, fidodaemon)
 
 # Allow platform apps to interact with secota daemon
 allow platform_app secotad_service:service_manager find;
+
+allow platform_app sysfs_kgsl:file { read open getattr };
+
 binder_call(platform_app, secotad)
 
 # Allow platform apps to interact with imscm daemon
