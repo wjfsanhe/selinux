@@ -1,0 +1,5 @@
+# Any fsck program run on untrusted block devices
+
+allow fsck_untrusted block_device:dir { getattr };	
+allow fsck_untrusted self:capability { sys_admin };
+

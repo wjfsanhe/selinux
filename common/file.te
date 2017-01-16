@@ -40,6 +40,8 @@ type persist_bms_file, file_type;
 
 type diag_data_file, file_type, data_file_type;
 
+#for ntfs
+type fuseblk, sdcard_type, fs_type, mlstrustedobject;
 #file type for restricting proc read by audiod
 type proc_audiod, fs_type;
 
