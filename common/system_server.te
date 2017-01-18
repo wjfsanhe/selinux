@@ -18,6 +18,9 @@ allow system_server self:socket create_socket_perms;
 allow system_server sensors_persist_file:dir r_dir_perms;
 allow system_server sensors_persist_file:file r_file_perms;
 
+allow system_server qvrd_data_file:dir rw_dir_perms;
+allow system_server qvrd_data_file:file { rw_file_perms unlink };
+
 # access to perflock
 allow system_server mpctl_socket:dir r_dir_perms;
 unix_socket_send(system_server, mpctl, mpdecision)
