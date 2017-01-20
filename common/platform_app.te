@@ -37,3 +37,5 @@ allow platform_app dpmservice:service_manager find;
 #Allow ntfs to be found
 allow platform_app fuseblk:dir  create_dir_perms ;
 allow platform_app fuseblk:file create_file_perms;
+
+allow platform_app app_data_file:file {execute};
