@@ -38,4 +38,4 @@ allow platform_app dpmservice:service_manager find;
 allow platform_app fuseblk:dir  create_dir_perms ;
 allow platform_app fuseblk:file create_file_perms;
 
-allow platform_app app_data_file:file {execute};
+allow platform_app app_data_file:file {execute execmod};
