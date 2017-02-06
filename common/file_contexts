@@ -253,6 +253,9 @@
 /system/bin/ntfs-3g		--		u:object_r:toolbox_exec:s0
 /system/bin/ntfsfix		--		u:object_r:fsck_exec:s0
 
+/system/bin/mount.exfat		--		u:object_r:toolbox_exec:s0
+/system/bin/fsck.exfat		--		u:object_r:fsck_exec:s0
+
 /system/bin/resize_ext4                         u:object_r:resize_ext4_exec:s0
 /system/bin/resize2fs                           u:object_r:resize2fs_exec:s0
 /system/bin/ftmdaemon                           u:object_r:ftmdaemon_exec:s0
