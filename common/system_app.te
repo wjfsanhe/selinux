@@ -229,3 +229,6 @@ allow system_app persist_drm_file:dir {add_name};
 allow system_app persist_drm_file:file {create};
 allow system_app persist_drm_file:file {read write open};
 allow system_app persist_drm_file:file {getattr};
+
+#battery
+allow system_app sysfs_battery_supply:file rw_file_perms;

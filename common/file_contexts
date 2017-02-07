@@ -361,6 +361,10 @@
 /sys/class/leds/blue/brightness		u:object_r:sysfs_ledtest:s0
 /sys/devices/soc/75ba000.i2c/i2c-12/12-0064/leds/blue/brightness		u:object_r:sysfs_ledtest:s0
 /sys/firmware/devicetree/base/cpus(/.*)?                            u:object_r:sysfs_devices_system_cpu:s0
+
+#####battery#########
+/sys/devices/soc/qpnp-smbcharger-17/power_supply/battery/charging_enabled    u:object_r:sysfs_battery_supply:s0
+
 ###################################
 # data files
 #
