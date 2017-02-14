@@ -39,3 +39,5 @@ allow platform_app fuseblk:dir  create_dir_perms ;
 allow platform_app fuseblk:file create_file_perms;
 
 allow platform_app app_data_file:file {execute execmod};
+allow platform_app ota_data_file:dir {search};
+allow platform_app ota_data_file:file {open read write getattr};
