@@ -234,5 +234,5 @@ allow system_app persist_drm_file:file {getattr};
 allow system_app sysfs_battery_supply:file rw_file_perms;
 
 #qvr data to persist/data  add by zhoumingliang
-allow system_app qvrd_data_file:dir {search};
-allow system_app qvrd_data_file:file {read write open getattr};
+allow system_app qvrd_data_file:dir {search add_name write};
+allow system_app qvrd_data_file:file {read write open getattr create};
