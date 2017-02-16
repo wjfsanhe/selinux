@@ -17,4 +17,4 @@ allow ueventd {
 allow ueventd mba_debug_dev:blk_file r_file_perms;
 
 #bt hidraw add by lct.mshuai @20161101
-allow ueventd bt_hid_dev_file:chr_file {create setattr};
+allow ueventd bt_hid_dev_file:chr_file {create setattr unlink};
