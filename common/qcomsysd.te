@@ -13,7 +13,8 @@ allow qcomsysd {
     #Needed to access the bootselect partition
     bootselect_device
 }:blk_file rw_file_perms;
-
+#add by zhoumingliang
+allow qcomsysd diag_device:chr_file rw_file_perms;
 #Needed to get image info from socinfo
 r_dir_file(qcomsysd, sysfs_socinfo)
 allow qcomsysd sysfs_socinfo:file w_file_perms;

@@ -38,6 +38,7 @@ allow wcnss_filter sysfs_msmuart_file:file rw_file_perms;
 allow wcnss_filter {
     serial_device
 }:chr_file rw_file_perms;
+allow wcnss_filter diag_device:chr_file rw_file_perms;
 
 #wakelock policy
 wakelock_use(wcnss_filter);

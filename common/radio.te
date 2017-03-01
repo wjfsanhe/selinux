@@ -15,6 +15,8 @@ allow radio uce_service:service_manager { add find };
 allow radio self:socket create_socket_perms;
 
 allow radio { cameraserver_service mediaextractor_service mediacodec_service }:service_manager find;
+
+allow radio diag_device:chr_file rw_file_perms;
 #diag
 userdebug_or_eng(`
     diag_use(radio)
