@@ -26,3 +26,4 @@ allow untrusted_app gba_auth_service:service_manager find;
 
 #add by wuyongsheng for bluetoothbackup
 allow untrusted_app persist_file:dir search;
+allow untrusted_app system_data_file:file { read getattr};
